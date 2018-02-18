@@ -8,9 +8,6 @@ import '@stencil/router';
 
 import '@ionic/core';
 
-import {
-  MatchResults,
-} from '@stencil/router';
 
 declare global {
   interface HTMLStencilElement extends HTMLElement {
@@ -19,6 +16,36 @@ declare global {
   }
 }
 
+
+
+import {
+  AppAddHolding as AppAddHolding
+} from './components/app-add-holding/app-add-holding';
+
+declare global {
+  interface HTMLAppAddHoldingElement extends AppAddHolding, HTMLStencilElement {
+  }
+  var HTMLAppAddHoldingElement: {
+    prototype: HTMLAppAddHoldingElement;
+    new (): HTMLAppAddHoldingElement;
+  };
+  interface HTMLElementTagNameMap {
+    "app-add-holding": HTMLAppAddHoldingElement;
+  }
+  interface ElementTagNameMap {
+    "app-add-holding": HTMLAppAddHoldingElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "app-add-holding": JSXElements.AppAddHoldingAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface AppAddHoldingAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
 
 
 import {
@@ -46,36 +73,6 @@ declare global {
   namespace JSXElements {
     export interface AppHomeAttributes extends HTMLAttributes {
       
-    }
-  }
-}
-
-
-import {
-  AppProfile as AppProfile
-} from './components/app-profile/app-profile';
-
-declare global {
-  interface HTMLAppProfileElement extends AppProfile, HTMLStencilElement {
-  }
-  var HTMLAppProfileElement: {
-    prototype: HTMLAppProfileElement;
-    new (): HTMLAppProfileElement;
-  };
-  interface HTMLElementTagNameMap {
-    "app-profile": HTMLAppProfileElement;
-  }
-  interface ElementTagNameMap {
-    "app-profile": HTMLAppProfileElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      "app-profile": JSXElements.AppProfileAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface AppProfileAttributes extends HTMLAttributes {
-      match?: MatchResults;
     }
   }
 }

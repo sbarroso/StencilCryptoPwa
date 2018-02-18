@@ -1,4 +1,9 @@
 exports.config = {
+  bundles: [
+    { components: ['my-app', 'app-home'] },
+    { components: ['app-add-holding'] },
+    { components: ['lazy-img'] }
+  ],
   collections: [
     { name: '@stencil/router' },
     { name: '@ionic/core' }
@@ -8,7 +13,7 @@ exports.config = {
   },
   globalStyle: 'src/global/app.css'
 };
-
+ 
 exports.devServer = {
   root: 'www',
   watchGlob: '**/**'

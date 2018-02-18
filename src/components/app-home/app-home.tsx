@@ -68,14 +68,21 @@ export class AppHome {
  
     return (
       <ion-page>
- 
+
         <ion-header>
           <ion-toolbar color="primary">
+            <ion-buttons slot="end">
+              <stencil-route-link url='/add-holding'>
+                <ion-button>
+                  <ion-icon slot="icon-only" name="add"></ion-icon>
+                </ion-button>
+              </stencil-route-link>
+            </ion-buttons>
             <ion-title>
-              cryptoPWA
+              Stencil Crypto PWA
             </ion-title>
           </ion-toolbar>
-        </ion-header>
+        </ion-header>        
  
         <ion-content>
  
