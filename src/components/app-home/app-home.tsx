@@ -1,4 +1,5 @@
 import { Component, State } from '@stencil/core';
+import Holdings from '../../services/holdings';
  
 interface Holding {
   crypto: string,
@@ -15,29 +16,13 @@ export class AppHome {
  
   @State() holdings: Holding[] = [];
  
+  private holdingsService = new Holdings();   
+ 
   componentWillLoad(){
  
-    // just set up some dummy data for now
-    this.holdings = [
-      {
-        crypto: 'BTC',
-        currency: 'USD',
-        amount: 0.1,
-        value: 11588.32892
-      },
-      {
-        crypto: 'ETH',
-        currency: 'USD',
-        amount: 2,
-        value: 1032.23421
-      },
-      {
-        crypto: 'LTC',
-        currency: 'USD',
-        amount: 4,
-        value: 153.2343242
-      }
-    ]
+    this.holdingsService.getHoldings().then((holdings) => {
+      this.holdings = holdings;
+    });
  
   }
  
@@ -68,7 +53,7 @@ export class AppHome {
  
     return (
       <ion-page>
-
+ 
         <ion-header>
           <ion-toolbar color="primary">
             <ion-buttons slot="end">
@@ -79,10 +64,10 @@ export class AppHome {
               </stencil-route-link>
             </ion-buttons>
             <ion-title>
-              Stencil Crypto PWA
+              Stencil Cypto PWA
             </ion-title>
           </ion-toolbar>
-        </ion-header>        
+        </ion-header>
  
         <ion-content>
  
